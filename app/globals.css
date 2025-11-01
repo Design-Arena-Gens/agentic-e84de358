@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0b1020;
+  --panel: #10172a;
+  --panel-2: #0d1426;
+  --text: #e6edf7;
+  --muted: #92a2c0;
+  --accent: #7aa2f7;
+  --accent-2: #a78bfa;
+  --edge: #5e77a5;
+}
+
+html, body, #__next { height: 100%; }
+
+body {
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 10% 10%, rgba(122,162,247,0.08), transparent 40%),
+              radial-gradient(1000px 700px at 90% 20%, rgba(167,139,250,0.08), transparent 40%),
+              var(--background);
+}
+
+/****************************
+  UI elements
+*****************************/
+
+.btn {
+  @apply rounded-md px-3 py-2 text-sm font-medium transition-colors select-none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.btn:hover { background: rgba(255,255,255,0.08); }
+.btn-primary { background: linear-gradient(180deg, rgba(122,162,247,0.26), rgba(122,162,247,0.12)); border-color: rgba(122,162,247,0.4); }
+.btn-danger { background: linear-gradient(180deg, rgba(244,63,94,0.2), rgba(244,63,94,0.1)); border-color: rgba(244,63,94,0.3); }
+.btn-ghost { background: transparent; border-color: rgba(255,255,255,0.06); }
+
+.panel {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.input {
+  @apply rounded-md px-2 py-1 text-sm bg-transparent border;
+  border-color: rgba(255,255,255,0.1);
+}
+
+.label { @apply text-xs text-[var(--muted)] uppercase tracking-wide; }
+
+hr.sep { border-color: rgba(255,255,255,0.1); }
+
+/****************************
+ React Flow theming tweaks
+*****************************/
+.react-flow__attribution { display: none; }
+.react-flow__panel { color: var(--text); }
+.react-flow__node { color: var(--text); }
+.react-flow__edge-path { stroke: var(--edge); }
+.react-flow__handle { background: var(--edge); border: 1px solid rgba(255,255,255,0.2); width: 10px; height: 10px; }
+
+/* Context menu */
+.context-menu {
+  position: absolute;
+  z-index: 50;
+  min-width: 220px;
+}
+.context-item { @apply flex items-center gap-2 px-3 py-2 text-sm hover:bg-white/5 cursor-pointer; }
